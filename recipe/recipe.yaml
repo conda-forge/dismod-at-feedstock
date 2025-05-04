@@ -19,7 +19,7 @@ source:
 
 build:
   # first build on this version
-  number: 0
+  number: 1
 
 requirements:
   build:
