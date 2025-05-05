@@ -20,6 +20,11 @@ source:
 build:
   # first build on this version
   number: 1
+  #
+  # rattler-build does not handel python install scripts properly.
+  python:
+    entry_points:
+      - dismod_at_py = dismod_at:main
 
 requirements:
   build:

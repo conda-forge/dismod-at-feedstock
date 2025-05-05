@@ -36,9 +36,9 @@ def sandbox2installed(test_file) :
    file_data = re.sub(pattern, replace, file_data)
    #
    # file_data
-   # Change from sandbox dismodat.py to installed dismod-at
+   # Change from sandbox dismodat.py to installed dismod_at_py
    pattern   = r'python/bin/dismodat.py'
-   replace   = r'dismod-at'
+   replace   = r'dismod_at_py'
    file_data = re.sub(pattern, replace, file_data)
    #
    # file_data
@@ -75,10 +75,10 @@ def main() :
    # platform.system
    print( 'run_test.py: platform.system() = ', platform.system() )
    #
-   # dismod_at, dismod-at
+   # dismod_at, dismod_at_py
    dir_list  = os.environ['PATH'].replace(';', ':').split(':')
    for directory in dir_list :
-      for file_name in [ 'dismod_at', 'dismod-at' ] :
+      for file_name in [ 'dismod_at', 'dismod_at_py' ] :
          file_path = f'{directory}/{file_name}'
          if os.path.isfile( file_path ) :
             print( f'run_test.py: found {file_path}' )
@@ -95,7 +95,7 @@ def main() :
       # This is failing on the conda-forge test machine, but works
       # doing a local rattler-build on a windows machine. At this point
       # I think it is a problem with the conda test system. 
-      skip = test_file=='test/user/db2csv.py' and platform.system() =='Windows'
+      skip = False
       if not skip :
          #
          # sandbox2installed
