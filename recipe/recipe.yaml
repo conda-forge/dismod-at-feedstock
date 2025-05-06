@@ -21,8 +21,8 @@ source:
     - ${{ version }}.patch
 
 build:
-  # first build on this version
-  number: 1
+  # second build on this version
+  number: 2
   #
   # rattler-build does not handel python install scripts properly.
   python:
