@@ -1,0 +1,25 @@
+diff --git a/python/dismod_at/db2csv_command.py b/python/dismod_at/db2csv_command.py
+index 73737d20f..2bd4ac29e 100644
+--- a/python/dismod_at/db2csv_command.py
++++ b/python/dismod_at/db2csv_command.py
+@@ -1834,3 +1834,9 @@ def db2csv_command(database_file_arg) :
+       for row in table_data['mixed_info'] :
+          csv_writer.writerow(row)
+       csv_file.close()
++   # ==========================================================================
++   # close connections
++   # ==========================================================================
++   primary_connection.close()
++   if other_connection != None :
++      other_connection.close()
+diff --git a/python/dismod_at/perturb_command.py b/python/dismod_at/perturb_command.py
+index 559220c36..7024d8838 100644
+--- a/python/dismod_at/perturb_command.py
++++ b/python/dismod_at/perturb_command.py
+@@ -250,5 +250,6 @@ def perturb_command(database, tbl_name, sigma_str) :
+    #
+    # replace table
+    dismod_at.replace_table(connection, tbl_name, table)
++   connection.close()
+    #
+    return

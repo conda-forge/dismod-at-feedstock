@@ -14,12 +14,12 @@ source:
   sha256: 0237d219817057d51a12f6e4902ffc0a176ca8b46d2b6f2f4adf166c5cd1c395
   #
   patches:
-    # There is no patch file for this version. 
-    # - ${{ version }}.patch
+    # patches for this version. 
+    - ${{ version }}.patch
 
 build:
-  # second build on this version
-  number: 2
+  # First build number for each version is 0
+  number: 3
   #
   # rattler-build does not handel python install scripts properly.
   python:
