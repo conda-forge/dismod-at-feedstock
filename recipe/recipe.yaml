@@ -19,7 +19,7 @@ source:
 
 build:
   # First build number for each version is 0
-  number: 3
+  number: 4
   #
   # rattler-build does not handel python install scripts properly.
   python:
