@@ -5,9 +5,9 @@ context:
   version: "2026.0.0"
   cppad_mixed_minimum: "2026.0.0"
   #
-  # Minimum version of python on conda-forge.  This is set automatically 
+  # Minimum version of python on conda-forge.  This should be set automatically 
   # by conda-forge and should only be uncommented for local testing.
-  # python_min: "3.10"
+  python_min: "3.10"
 
 package:
   name: ${{ name }}
