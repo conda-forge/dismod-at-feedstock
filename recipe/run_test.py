@@ -53,17 +53,17 @@ def sandbox2installed(test_file) :
 
 #
 # main
-# Put this code in a function so as to not polute the file namespace
+# Put this code in a function so as to not pollute the file namespace
 def main() :
    #
    # work_dir
    work_dir  = os.getcwd().replace('/', '|').replace('\\', '|')
-   print( f'run_test.py: work directory with / and \\ repalced by |')
+   print( f'run_test.py: work directory with / and \\ replaced by |')
    print( work_dir )
    #
    # prefix_dir
    prefix_dir  = os.environ['PREFIX'].replace('/', '|').replace('\\', '|')
-   print( f'run_test.py: prefix directory with / and \\ repalced by |')
+   print( f'run_test.py: prefix directory with / and \\ replaced by |')
    print( prefix_dir )
    #
    # sys.path

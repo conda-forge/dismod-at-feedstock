@@ -21,7 +21,7 @@ build:
   # First build number for each version is 0
   number: 0
   #
-  # rattler-build does not handel python install scripts properly.
+  # rattler-build does not handle python install scripts properly.
   python:
     # rattler-build does properly not handle [project.scripts] in 
     # pyproject.toml on windows unless they are also listed as entry_points.
