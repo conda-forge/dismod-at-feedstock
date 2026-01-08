@@ -3,6 +3,11 @@ schema_version: 1
 context:
   name: dismod-at
   version: "2026.0.0"
+  cppad_mixed_minimum: "2026.0.0"
+  #
+  # Minimum version of python on conda-forge.  This is set automatically 
+  # by conda-forge and should only be uncommented for local testing.
+  # python_min: "3.10"
 
 package:
   name: ${{ name }}
@@ -36,18 +41,18 @@ requirements:
     - cmake
     - ninja
   host:
-    - python
+    - python = ${{ python_min }}
     - pip
     - setuptools
     - pkg-config
-    - cppad-mixed
+    - cppad-mixed >= ${{ cppad_mixed_minimum }}
     - sqlite
     - eigen
     - numpy
     - matplotlib-base
     - scipy
   run:
-    - python
+    - python = ${{ python_min }}
     - numpy
     - matplotlib-base
     - scipy
@@ -60,7 +65,7 @@ tests:
       file: run_test.py
     requirements:
       run:
-        - python
+        - python = ${{ python_min }}
         - numpy
         - matplotlib
         - scipy
