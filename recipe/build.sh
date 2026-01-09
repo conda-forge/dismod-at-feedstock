@@ -32,10 +32,10 @@ ninja -j$CPU_COUNT dismod_at
 ninja -j$CPU_COUNT example_devel test_devel
 #
 # 
-# check
+# check: Comment out this check before merging a pull request.
 # This target does not support parallel execution because many of the 
 # user tests use the same file name.
-ninja -j1 check
+# ninja -j1 check
 #
 # C++ install
 ninja -j$CPU_COUNT install

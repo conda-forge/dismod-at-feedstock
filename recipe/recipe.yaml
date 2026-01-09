@@ -2,7 +2,12 @@ schema_version: 1
 
 context:
   name: dismod-at
-  version: 2025.4.16
+  version: "2026.0.0"
+  cppad_mixed_minimum: "2026.0.0"
+  #
+  # Minimum version of python on conda-forge.  This should be set automatically 
+  # by conda-forge and should only be uncommented for local testing.
+  python_min: "3.10"
 
 package:
   name: ${{ name }}
@@ -11,7 +16,7 @@ package:
 source:
   #
   url: https://github.com/bradbell/dismod_at/archive/${{ version }}.tar.gz
-  sha256: 0237d219817057d51a12f6e4902ffc0a176ca8b46d2b6f2f4adf166c5cd1c395
+  sha256: a1a7b492d76d71fb5935b17611af1e09f6c6db2dc2dca30070adc4bd07794e28
   #
   patches:
     # patches for this version. 
@@ -19,9 +24,9 @@ source:
 
 build:
   # First build number for each version is 0
-  number: 4
+  number: 0
   #
-  # rattler-build does not handel python install scripts properly.
+  # rattler-build does not handle python install scripts properly.
   python:
     # rattler-build does properly not handle [project.scripts] in 
     # pyproject.toml on windows unless they are also listed as entry_points.
@@ -36,18 +41,18 @@ requirements:
     - cmake
     - ninja
   host:
-    - python
+    - python =${{ python_min }}
     - pip
     - setuptools
     - pkg-config
-    - cppad-mixed
+    - cppad-mixed >= ${{ cppad_mixed_minimum }}
     - sqlite
     - eigen
     - numpy
     - matplotlib-base
     - scipy
   run:
-    - python
+    - python =${{ python_min }}
     - numpy
     - matplotlib-base
     - scipy
@@ -60,7 +65,7 @@ tests:
       file: run_test.py
     requirements:
       run:
-        - python
+        - python =${{ python_min }}
         - numpy
         - matplotlib
         - scipy
