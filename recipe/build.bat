@@ -25,11 +25,11 @@ if errorlevel 1 exit 1
 ninja -j%CPU_COUNT% example_devel test_devel
 if errorlevel 1 exit 1
 
-:: check: Commented out on 2026-01-80
+:: check: 
 :: This target does not support parallel execution because many of the 
 :: user tests use the same file name.
-:: ninja -j1 check
-:: if errorlevel 1 exit 1
+ninja -j1 check
+if errorlevel 1 exit 1
 
 :: C++ install
 ninja -j%CPU_COUNT% install

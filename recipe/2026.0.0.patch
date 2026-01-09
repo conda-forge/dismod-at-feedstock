@@ -1,0 +1,30 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 7163dddc3..fd92d0f48 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -209,10 +209,11 @@ INCLUDE_DIRECTORIES( ${SQLite3_INCLUDE_DIRS} )
+ # package information for: CHOLMOD
+ # The cppad_mixed.hpp file includes cholmod.h so this is needed.
+ # Fedora 42 uses CHOLMOD.pc (above) because FIND_PACKAGE(CHOLMOD) is broken
+-IF( "$CHOLMOD_INDLUDE_DIR" STREQUAL "NOTFOUND" )
++IF( "${CHOLMOD_INCLUDE_DIR}" STREQUAL "NOTFOUND" )
+    FIND_PACKAGE(CHOLMOD)
+    INCLUDE_DIRECTORIES( "${CHOLMOD_INCLUDE_DIR}" )
+ ENDIF( )
++MESSAGE(STATUS "CHOLMOD_INCLUDE_DIR=${CHOLMOD_INCLUDE_DIR}" )
+ # ----------------------------------------------------------------------------
+ # check compiler flags
+ #
+diff --git a/devel/cmd/predict_command.cpp b/devel/cmd/predict_command.cpp
+index 5ebc6f139..68aeaebb7 100644
+--- a/devel/cmd/predict_command.cpp
++++ b/devel/cmd/predict_command.cpp
+@@ -137,7 +137,7 @@ void predict_command(
+       msg        += "sample, fit_var, truth_var";
+       dismod_at::error_exit(msg);
+    }
+-   if ( fit_var_scale != 1.0 and source != "sample" )
++   if ( fit_var_scale != 1.0 && source != "sample" )
+    {  string msg  = "dismod_at predict command: fit_var scale is present ";
+       msg        += "and source is not sample";
+       dismod_at::error_exit(msg);

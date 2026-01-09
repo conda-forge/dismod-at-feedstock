@@ -20,7 +20,7 @@ source:
   #
   patches:
     # patches for this version. 
-    # - ${{ version }}.patch
+    - ${{ version }}.patch
 
 build:
   # First build number for each version is 0
