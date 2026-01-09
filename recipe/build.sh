@@ -34,7 +34,7 @@ ninja -j$CPU_COUNT example_devel test_devel
 # 
 # check:
 # This target does not support parallel execution because many of the 
-user tests use the same file name.
+# user tests use the same file name.
 ninja -j1 check
 #
 # C++ install
