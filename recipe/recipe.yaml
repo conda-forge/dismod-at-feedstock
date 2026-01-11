@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: dismod-at
-  version: "2026.0.0"
+  version: "2026.0.1"
   cppad_mixed_minimum: "2026.0.0"
   #
   # Minimum version of python on conda-forge.  This should be set automatically 
@@ -16,11 +16,11 @@ package:
 source:
   #
   url: https://github.com/bradbell/dismod_at/archive/${{ version }}.tar.gz
-  sha256: a1a7b492d76d71fb5935b17611af1e09f6c6db2dc2dca30070adc4bd07794e28
+  sha256: e157312ede3beefbd24b2544c677a73d34b10a05246fac1111e1de039cf7e35a
   #
   patches:
     # patches for this version. 
-    - ${{ version }}.patch
+    # - ${{ version }}.patch
 
 build:
   # First build number for each version is 0
