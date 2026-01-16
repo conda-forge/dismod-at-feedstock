@@ -7,7 +7,7 @@ context:
   #
   # Minimum version of python on conda-forge.  This should be set automatically 
   # by conda-forge and should only be uncommented for local testing.
-  python_min: "3.10"
+  # python_min: "3.10"
 
 package:
   name: ${{ name }}
@@ -24,7 +24,7 @@ source:
 
 build:
   # First build number for each version is 0
-  number: 0
+  number: 1
   #
   # rattler-build does not handle python install scripts properly.
   python:
@@ -41,7 +41,7 @@ requirements:
     - cmake
     - ninja
   host:
-    - python =${{ python_min }}
+    - python >=${{ python_min }}
     - pip
     - setuptools
     - pkg-config
@@ -52,7 +52,7 @@ requirements:
     - matplotlib-base
     - scipy
   run:
-    - python =${{ python_min }}
+    - python >=${{ python_min }}
     - numpy
     - matplotlib-base
     - scipy
@@ -65,7 +65,7 @@ tests:
       file: run_test.py
     requirements:
       run:
-        - python =${{ python_min }}
+        - python >=${{ python_min }}
         - numpy
         - matplotlib
         - scipy
