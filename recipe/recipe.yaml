@@ -41,7 +41,7 @@ requirements:
     - cmake
     - ninja
   host:
-    - python >=${{ python_min }}
+    - python
     - pip
     - setuptools
     - pkg-config
@@ -52,7 +52,7 @@ requirements:
     - matplotlib-base
     - scipy
   run:
-    - python >=${{ python_min }}
+    - python
     - numpy
     - matplotlib-base
     - scipy
@@ -65,7 +65,7 @@ tests:
       file: run_test.py
     requirements:
       run:
-        - python >=${{ python_min }}
+        - python
         - numpy
         - matplotlib
         - scipy
