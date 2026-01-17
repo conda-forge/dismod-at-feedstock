@@ -4,10 +4,6 @@ context:
   name: dismod-at
   version: "2026.0.1"
   cppad_mixed_minimum: "2026.0.0"
-  #
-  # Minimum version of python on conda-forge.  This should be set automatically 
-  # by conda-forge and should only be uncommented for local testing.
-  # python_min: "3.10"
 
 package:
   name: ${{ name }}
@@ -20,11 +16,11 @@ source:
   #
   patches:
     # patches for this version. 
-    # - ${{ version }}.patch
+    - ${{ version }}.patch
 
 build:
   # First build number for each version is 0
-  number: 1
+  number: 2
   #
   # rattler-build does not handle python install scripts properly.
   python:
