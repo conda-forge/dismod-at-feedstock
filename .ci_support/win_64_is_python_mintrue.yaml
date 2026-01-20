@@ -8,6 +8,8 @@ channel_targets:
 - conda-forge main
 cxx_compiler:
 - vs2022
+is_python_min:
+- true
 numpy:
 - '2'
 python_min:

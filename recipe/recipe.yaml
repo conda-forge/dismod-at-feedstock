@@ -15,16 +15,18 @@ source:
   sha256: e157312ede3beefbd24b2544c677a73d34b10a05246fac1111e1de039cf7e35a
   #
   patches:
-    # patches for this version. 
+    # patches for this version.
     - ${{ version }}.patch
 
 build:
   # First build number for each version is 0
-  number: 2
+  number: 3
+  skip: not is_python_min
   #
   # rattler-build does not handle python install scripts properly.
   python:
-    # rattler-build does properly not handle [project.scripts] in 
+    version_independent: true
+    # rattler-build does properly not handle [project.scripts] in
     # pyproject.toml on windows unless they are also listed as entry_points.
     entry_points:
       - dismod-at = dismod_at:main
@@ -37,18 +39,18 @@ requirements:
     - cmake
     - ninja
   host:
-    - python
+    - python ${{ python_min }}.*
     - pip
     - setuptools
     - pkg-config
-    - cppad-mixed >= ${{ cppad_mixed_minimum }}
+    - cppad-mixed >=${{ cppad_mixed_minimum }}
     - sqlite
     - eigen
     - numpy
     - matplotlib-base
     - scipy
   run:
-    - python
+    - python >=${{ python_min }}
     - numpy
     - matplotlib-base
     - scipy
@@ -56,12 +58,18 @@ requirements:
     - ${{ pin_subpackage(name, upper_bound='x.x') }}
 
 tests:
+  - python:
+      imports: dismod_at
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - 3.14.*
   - script:
       interpreter: python
       file: run_test.py
     requirements:
       run:
-        - python
+        - python ${{ python_min }}.*
         - numpy
         - matplotlib
         - scipy
