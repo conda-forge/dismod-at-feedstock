@@ -18,8 +18,12 @@ docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma9
 numpy:
 - '2'
-python_min:
-- '3.10'
+pin_run_as_build:
+  python:
+    min_pin: x.x
+    max_pin: x.x
+python:
+- 3.14.* *_cp314
 sqlite:
 - '3'
 target_platform:
