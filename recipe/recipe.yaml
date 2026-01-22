@@ -20,7 +20,7 @@ source:
 
 build:
   # First build number for each version is 0
-  number: 4
+  number: 5
   skip: not is_python_min
   #
   # rattler-build does not handle python install scripts properly.
