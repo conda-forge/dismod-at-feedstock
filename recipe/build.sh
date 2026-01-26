@@ -15,7 +15,7 @@ extra_cxx_flags+=' -Wno-sign-conversion'
 mkdir build && cd build
 #
 # cmake
-cmake -S $SRC_DIR -B . \
+cmake ${CMAKE_ARGS} -S $SRC_DIR -B . \
    -G 'Ninja' \
    -D CMAKE_BUILD_TYPE=Release \
    -D extra_cxx_flags="'$extra_cxx_flags'" \
