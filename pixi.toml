@@ -4,10 +4,10 @@
 "$schema" = "https://pixi.sh/v0.59.0/schema/manifest/schema.json"
 
 [workspace]
-name = "dismod-at-feedstock.git"
+name = "dismod-at-feedstock"
 version = "3.54.1"  # conda-smithy version used to generate this file
-description = "Pixi configuration for conda-forge/dismod-at-feedstock.git"
-authors = ["@conda-forge/dismod-at-fee"]
+description = "Pixi configuration for conda-forge/dismod-at-feedstock"
+authors = ["@conda-forge/dismod-at"]
 channels = ["conda-forge"]
 platforms = ["linux-64", "osx-64", "win-64"]
 requires-pixi = ">=0.59.0"
@@ -22,25 +22,31 @@ cmd = "inspect_artifacts --all-packages"
 description = "List contents of all packages found in rattler-build build directory."
 [tasks.build]
 cmd = "rattler-build build --recipe recipe"
-description = "Build dismod-at-feedstock.git directly (without setup scripts), no particular variant specified"
+description = "Build dismod-at-feedstock directly (without setup scripts), no particular variant specified"
 [tasks."build-linux_64_is_python_mintrue"]
 cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_is_python_mintrue.yaml"
-description = "Build dismod-at-feedstock.git with variant linux_64_is_python_mintrue directly (without setup scripts)"
+description = "Build dismod-at-feedstock with variant linux_64_is_python_mintrue directly (without setup scripts)"
 [tasks."inspect-linux_64_is_python_mintrue"]
 cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_is_python_mintrue.yaml"
-description = "List contents of dismod-at-feedstock.git packages built for variant linux_64_is_python_mintrue"
+description = "List contents of dismod-at-feedstock packages built for variant linux_64_is_python_mintrue"
 [tasks."build-osx_64_is_python_mintrue"]
 cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_is_python_mintrue.yaml"
-description = "Build dismod-at-feedstock.git with variant osx_64_is_python_mintrue directly (without setup scripts)"
+description = "Build dismod-at-feedstock with variant osx_64_is_python_mintrue directly (without setup scripts)"
 [tasks."inspect-osx_64_is_python_mintrue"]
 cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_is_python_mintrue.yaml"
-description = "List contents of dismod-at-feedstock.git packages built for variant osx_64_is_python_mintrue"
+description = "List contents of dismod-at-feedstock packages built for variant osx_64_is_python_mintrue"
+[tasks."build-osx_arm64_is_python_mintrue"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_is_python_mintrue.yaml"
+description = "Build dismod-at-feedstock with variant osx_arm64_is_python_mintrue directly (without setup scripts)"
+[tasks."inspect-osx_arm64_is_python_mintrue"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_is_python_mintrue.yaml"
+description = "List contents of dismod-at-feedstock packages built for variant osx_arm64_is_python_mintrue"
 [tasks."build-win_64_is_python_mintrue"]
 cmd = "rattler-build build --recipe recipe -m .ci_support/win_64_is_python_mintrue.yaml"
-description = "Build dismod-at-feedstock.git with variant win_64_is_python_mintrue directly (without setup scripts)"
+description = "Build dismod-at-feedstock with variant win_64_is_python_mintrue directly (without setup scripts)"
 [tasks."inspect-win_64_is_python_mintrue"]
 cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/win_64_is_python_mintrue.yaml"
-description = "List contents of dismod-at-feedstock.git packages built for variant win_64_is_python_mintrue"
+description = "List contents of dismod-at-feedstock packages built for variant win_64_is_python_mintrue"
 
 [feature.smithy.dependencies]
 conda-smithy = "*"
